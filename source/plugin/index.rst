@@ -48,6 +48,7 @@ Contents
     configuration/index
     data/index
     blocks/index
+    vector/index
     entities/index
     items
     injection
