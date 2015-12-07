@@ -16,6 +16,8 @@ orientation.
 Minecraft introduces two angles to cover the orientation of the player. First an angle for the horizontal plane
 (looking left and right) and second an angle representing the vertical view (looking up and down).
 
+.. is this ^ correct?
+
 Turning clockwise increses the first angle. It ranges from negative 180° to positive 180°, with the zero point facing
 towards positive ``Z`` (East). The second angle zeros when looking horizontal and increases when lowering the sight. It
 range is -90° to 90°.
@@ -23,10 +25,16 @@ range is -90° to 90°.
 While this suffices for Vanilla Minecraft, we want to be able to rotate entities in every possible direction. Thus,
 there's a need to introduce a better representation of at least the orientation of an entity.
 
-Euler angles
-============
+The Spongie way of coordinates
+==============================
 
-That's when Euler angles come into play. Euler angles are three angles that describe the orientation of an entity in an
+Sponge handles the position, just like Vanilla Minecraft, via X, Y and Z coordinate. However this doesn't apply for the
+orientation of the player or other entities.
+
+Euler angles
+------------
+
+That's when Euler angles come into play. Euler angles are three angles that describe the orientation of an entity in
 3D space. Usually they're known as ``Pitch``, ``Yaw`` and ``Roll``. Each of this angles is tied to an axis:
 
 * ``Pitch`` represents a rotation around the ``X`` axis,
@@ -35,14 +43,23 @@ That's when Euler angles come into play. Euler angles are three angles that desc
 
 This leaves us with 3 cartesian coordinates plus 3 angles to fully describe the position and orientation of an entity
 in 3D space. While this representation is as sane as it can be, we'll mostly run into issues when we try to use it.
+Luckily there's a library available to cover most usecases.
 
-Quaternions and Flowpowered math
-================================
+Quaternions and the Flowpowered math library
+============================================
 
-This is where Quaternions and the Flowpowered math library come in handy.
+This is where Quaternions and the Flowpowered math library come in handy. This library allows us to convert directional
+vectors to Eulerangles and vice versa.
+
+.. note::
+  If you want to know more about Quaternions, have a look at `Quaternion <https://en.wikipedia.org/wiki/Quaternion>`_
+  and `Quaternions and spatial rotation <https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation>`_.
+
+
+
 
 
 Converting from Eulerangles to cartesian coordinates
-====================================================
+----------------------------------------------------
 
 .. Eulerangels -> XYZ
