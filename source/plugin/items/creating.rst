@@ -71,3 +71,17 @@ Finally, to make the sword unbreakable, we can use keys again:
 
 That's it. You now have a fully enchanted, unbreakable, and beautifully named sword which you can spawn or give to
 players. The sword goes by the name "SUPER MEGA AWESOME Diamond Sword".
+
+Creating an ItemStack From a Block
+==================================
+
+An ``ItemStack`` for a block can be created by using the method ``itemType()`` on the builder similarly to normal
+items, but what if we wanted to create an ``ItemStack`` from a ``BlockState`` itself? To create an ``ItemStack`` from
+a ``BlockState``, you would need to use the ``fromBlockState()`` method on the ``ItemStack`` builder. An example of
+this is shown below:
+
+.. code-block:: java
+
+    public ItemStack createStack(BlockState state) {
+        return ItemStack.builder().fromBlockState(state).build();
+    }
