@@ -82,6 +82,8 @@ this is shown below:
 
 .. code-block:: java
 
+    import org.spongepowered.api.block.BlockState;
+
     public ItemStack createStack(BlockState state) {
         return ItemStack.builder().fromBlockState(state).build();
     }
